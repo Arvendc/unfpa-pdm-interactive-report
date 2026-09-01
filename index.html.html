@@ -1,0 +1,2285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNFPA Post-Distribution Monitoring (PDM) Comprehensive Visual Report</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js and Chartjs Plugin Datalabels -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+        }
+        .unfpa-orange { color: #F36D21; }
+        .bg-unfpa-orange { background-color: #F36D21; }
+        .border-unfpa-orange { border-color: #F36D21; }
+        .unfpa-navy { color: #002B49; }
+        .bg-unfpa-navy { background-color: #002B49; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid #F36D21;
+            color: #F36D21;
+            font-weight: 700;
+            background-color: #FFF7ED;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Header / Navigation Banner -->
+    <header class="bg-unfpa-navy text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-unfpa-orange p-2.5 rounded-lg text-white font-extrabold text-xl tracking-wider">
+                    UNFPA
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold leading-tight">Post-Distribution Monitoring (PDM) Visual Report</h1>
+                    <p class="text-xs text-slate-300">Region XII Emergency SRHiE & GBViE Response | August 2026 Assessment</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 text-xs bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Disaster Context: June 8, 2026 | Mag 7.8 Earthquake</span>
+            </div>
+        </div>
+
+        <!-- Scrollable Navigation Tabs -->
+        <nav class="bg-slate-900 border-t border-slate-800 overflow-x-auto no-scrollbar">
+            <div class="max-w-7xl mx-auto px-4 flex whitespace-nowrap text-xs sm:text-sm text-slate-300">
+                <button onclick="switchTab('title-page')" id="tab-title-page" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors active">Title Page</button>
+                <button onclick="switchTab('exec-summary')" id="tab-exec-summary" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">1. Executive Summary</button>
+                <button onclick="switchTab('context')" id="tab-context" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">2. Context & Scope</button>
+                <button onclick="switchTab('methodology')" id="tab-methodology" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">3. Methodology</button>
+                <button onclick="switchTab('demographics')" id="tab-demographics" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">4.1 Demographics</button>
+                <button onclick="switchTab('delivery')" id="tab-delivery" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">4.2 Delivery & AAP</button>
+                <button onclick="switchTab('logistics')" id="tab-logistics" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">4.3 Access & Safety</button>
+                <button onclick="switchTab('utility')" id="tab-utility" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">4.4 Kit Impact & Utility</button>
+                <button onclick="switchTab('challenges')" id="tab-challenges" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">5. Challenges & Gaps</button>
+                <button onclick="switchTab('action-plan')" id="tab-action-plan" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">6. Action Plan</button>
+                <button onclick="switchTab('annex')" id="tab-annex" class="tab-btn px-4 py-3 font-medium hover:text-white transition-colors">Annex: Qualitative Testimonies</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+
+        <!-- TAB: TITLE PAGE -->
+        <section id="content-title-page" class="tab-content space-y-6">
+            <div class="bg-slate-900 text-white p-6 sm:p-10 rounded-2xl shadow-xl border border-slate-800 relative overflow-hidden">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-unfpa-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-4xl mx-auto space-y-8 relative z-10">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 border-b border-slate-800 pb-6 text-center sm:text-left">
+                        <div class="bg-unfpa-orange text-white font-black text-2xl tracking-widest px-4 py-2 rounded-lg shadow-md">
+                            UNFPA
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-widest text-slate-400 font-semibold">United Nations Population Fund</p>
+                            <p class="text-sm text-unfpa-orange font-bold">Philippines Country Office</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 text-center sm:text-left">
+                        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-500/10 text-unfpa-orange border border-orange-500/20">
+                            Official Assessment Report
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                            POST-DISTRIBUTION MONITORING (PDM) REPORT
+                        </h1>
+                        <p class="text-base sm:text-lg text-slate-300 font-medium leading-relaxed pt-1">
+                            Assessing the Reach, Quality, Protection Safeguards, and Utility of Sexual & Reproductive Health (SRH) and Gender-Based Violence (GBV) Emergency Relief in Sarangani Province and South Cotabato
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs">
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                            <span class="text-slate-400 text-[11px] font-semibold uppercase block"><i class="fa-solid fa-calendar-circle-exclamation text-unfpa-orange mr-1.5"></i>Operational Context</span>
+                            <span class="text-white font-bold text-sm block">June 8, 2026</span>
+                            <span class="text-slate-300 text-[11px] block">Region XII Earthquake Response</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                            <span class="text-slate-400 text-[11px] font-semibold uppercase block"><i class="fa-solid fa-clock-rotate-left text-sky-400 mr-1.5"></i>Monitoring Window</span>
+                            <span class="text-white font-bold text-sm block">August 3–8, 2026</span>
+                            <span class="text-slate-300 text-[11px] block">Field Assessment Deployment</span>
+                        </div>
+                        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/80 space-y-1">
+                            <span class="text-slate-400 text-[11px] font-semibold uppercase block"><i class="fa-solid fa-diagram-project text-emerald-400 mr-1.5"></i>Strategic Framework</span>
+                            <span class="text-white font-bold text-sm block">UNFPA 9CP</span>
+                            <span class="text-slate-300 text-[11px] block">9th Country Programme</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/60 space-y-3">
+                        <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-handshake"></i> Implementing & Assessment Partners
+                        </h3>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-200">
+                            <li class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/40">
+                                <i class="fa-solid fa-circle-dot text-unfpa-orange text-[10px]"></i>
+                                <span><strong>UNFPA:</strong> United Nations Population Fund Philippines</span>
+                            </li>
+                            <li class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/40">
+                                <i class="fa-solid fa-circle-dot text-unfpa-orange text-[10px]"></i>
+                                <span><strong>DOH:</strong> Department of Health Regional Office XII</span>
+                            </li>
+                            <li class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/40">
+                                <i class="fa-solid fa-circle-dot text-unfpa-orange text-[10px]"></i>
+                                <span><strong>DSWD:</strong> Department of Social Welfare and Development</span>
+                            </li>
+                            <li class="flex items-center gap-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/40">
+                                <i class="fa-solid fa-circle-dot text-unfpa-orange text-[10px]"></i>
+                                <span><strong>IPHO:</strong> Integrated Provincial Health Offices (Sarangani & South Cotabato)</span>
+                            </li>
+                            <li class="flex items-center gap-2 sm:col-span-2 bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/40">
+                                <i class="fa-solid fa-circle-dot text-unfpa-orange text-[10px]"></i>
+                                <span><strong>UNYPHIL-Women:</strong> United Youth of the Philippines-Women</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800">
+                        <span class="text-xs text-slate-400">Explore full report sections using the top navigation bar or proceed directly:</span>
+                        <button onclick="switchTab('exec-summary')" class="w-full sm:w-auto px-5 py-2.5 bg-unfpa-orange hover:bg-orange-600 text-white text-xs font-bold rounded-lg shadow-lg transition-all flex items-center justify-center gap-2">
+                            <span>Proceed to Executive Summary</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: EXECUTIVE SUMMARY -->
+        <section id="content-exec-summary" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">1. Executive Summary</h2>
+                        <p class="text-xs text-slate-500">Region XII Emergency Response Assessment | August 2026 PDM</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-earthquake text-unfpa-orange"></i>
+                        Disaster & Response
+                    </h3>
+                    <ul class="text-xs text-slate-700 space-y-2 list-disc list-inside leading-relaxed">
+                        <li><strong>7.8M Earthquake Context:</strong> A 7.8M earthquake struck offshore Sarangani on June 8, 2026, causing widespread landslides, infrastructure damage, and displacement across Sarangani Province and South Cotabato.</li>
+                        <li><strong>UNFPA Emergency Assistance:</strong> UNFPA, in coordination with DOH, DSWD, IPHOs, and partners, deployed SRH/GBV emergency assistance, including Dignity Kits, Maternity Packs, and Emergency Maternity Tent Facilities (EMTFs).</li>
+                        <li><strong>Priority Vulnerable Groups:</strong> Relief targeting prioritized pregnant/lactating women, adolescent girls, female caregivers, Persons with Disabilities (PWDs), GBV survivors, and indigenous communities.</li>
+                    </ul>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-chart-simple text-unfpa-orange"></i>
+                            PDM at a Glance
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-xs text-left border-collapse border border-slate-200 rounded-lg bg-white">
+                                <thead>
+                                    <tr class="bg-unfpa-navy text-white text-[11px]">
+                                        <th class="p-2 border border-slate-300 font-semibold">Indicator</th>
+                                        <th class="p-2 border border-slate-300 font-semibold">Result</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-slate-200 text-slate-700 text-[11px]">
+                                    <tr><td class="p-2 border font-medium">Validated Respondents</td><td class="p-2 border font-bold text-unfpa-navy">321</td></tr>
+                                    <tr><td class="p-2 border font-medium">Dignity Kits</td><td class="p-2 border font-bold text-unfpa-orange">251 (78.2%)</td></tr>
+                                    <tr><td class="p-2 border font-medium">Maternity Packs</td><td class="p-2 border font-bold text-sky-600">70 (21.8%)</td></tr>
+                                    <tr><td class="p-2 border font-medium">Sarangani Respondents</td><td class="p-2 border font-bold">291 (90.7%)</td></tr>
+                                    <tr><td class="p-2 border font-medium">South Cotabato Respondents</td><td class="p-2 border font-bold">30 (9.3%)</td></tr>
+                                    <tr><td class="p-2 border font-medium">FGD Participants</td><td class="p-2 border font-bold">62</td></tr>
+                                    <tr><td class="p-2 border font-medium">FGDs Conducted</td><td class="p-2 border font-bold">8</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">Overall Distribution Reach by Location</h3>
+                        <div class="chart-container">
+                            <canvas id="summaryReachChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wide flex items-center gap-2">
+                        <i class="fa-solid fa-hospital-user"></i>
+                        EMTF Clinical Operations & Relief Reach
+                    </h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        To restore clinical capacity, two Emergency Maternity Tent Facilities (EMTFs) were established in Alabel and Glan. A total of <strong>1,717 relief kits</strong> were distributed (1,556 Dignity Kits and 161 Maternity Kits).
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1 text-xs">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px]">EMTF Deliveries</span>
+                            <span class="text-lg font-extrabold text-white">290 Total</span>
+                            <span class="block text-[10px] text-slate-400">245 Alabel / 45 Glan</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px]">Adolescent Deliveries</span>
+                            <span class="text-lg font-extrabold text-amber-400">57 Cases</span>
+                            <span class="block text-[10px] text-amber-300/80">Under 18 Years Old</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px]">Acute Protection</span>
+                            <span class="text-lg font-extrabold text-rose-400">2 Cases</span>
+                            <span class="block text-[10px] text-rose-300/80">13-yo GBV Survivors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-emerald-50/60 border border-emerald-200 p-5 rounded-xl space-y-3">
+                    <h3 class="text-xs font-bold text-emerald-900 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                        Key Findings
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700">
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>100% Item Quality:</strong> Rated kit items as good quality with zero damaged or expired items reported.</span>
+                        </div>
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>100% Protection Compliance:</strong> Reported no payment, favors, or fees requested for assistance.</span>
+                        </div>
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>100% Satisfaction:</strong> Expressed overall satisfaction with the emergency assistance received.</span>
+                        </div>
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>99.4% Timely Delivery:</strong> Verified that distributions arrived within critical recovery windows.</span>
+                        </div>
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>98.8% Venue Access:</strong> Found distribution venues accessible and safe for collection.</span>
+                        </div>
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80">
+                            <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>95.3% Active Utility:</strong> Actively utilized received kit commodities for daily hygiene and health.</span>
+                        </div>
+                        <div class="flex items-start gap-2 bg-white p-2.5 rounded-lg border border-emerald-200/80 sm:col-span-2">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-600 mt-0.5"></i>
+                            <span><strong>AAP & Feedback Gap:</strong> 67.0% felt safe providing feedback, but only 51.1% knew of a confidential channel, and <strong>100% of feedback filers (60) received zero follow-up</strong>.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50/70 border border-amber-200 p-5 rounded-xl space-y-3">
+                    <h3 class="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
+                        Key Operational Gaps
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3 rounded-lg border border-amber-200/80 space-y-1">
+                            <strong class="text-amber-900 font-bold block">Supply & Kit Design</strong>
+                            <p class="text-[11px] text-slate-600">16.9% Dignity Kits and 24.6% Maternity Packs incomplete; hospital packs contained redundant clinical supplies; 8.0% reported underwire bras as non-useful/uncomfortable.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-amber-200/80 space-y-1">
+                            <strong class="text-amber-900 font-bold block">WASH & MHM</strong>
+                            <p class="text-[11px] text-slate-600">Earthquake-related water shortages reduced practicality of reusable menstrual products; 100% of youth preferred disposable pads.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-amber-200/80 space-y-1">
+                            <strong class="text-amber-900 font-bold block">AAP & Connectivity</strong>
+                            <p class="text-[11px] text-slate-600">Feedback systems lacked closed-loop follow-up; cellular network outages affected hotline access in Glan and Lake Sebu.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-amber-200/80 space-y-1">
+                            <strong class="text-amber-900 font-bold block">Geographic Access</strong>
+                            <p class="text-[11px] text-slate-600">Remote communities in Lake Sebu faced difficult terrain, long travel times, and transport costs up to PHP 300.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-amber-200/80 sm:col-span-2 space-y-1">
+                            <strong class="text-amber-900 font-bold block">Emerging Post-Disaster Needs</strong>
+                            <p class="text-[11px] text-slate-600">High requested demand for infant diapers, pediatric paracetamol (0-12 months), infant formula/milk, food/rice packs, and multipurpose cash assistance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-list-check"></i>
+                        Priority Actions
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div class="bg-slate-800 p-3.5 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-unfpa-orange font-bold block text-xs">1. Customize Kits</strong>
+                            <p class="text-slate-300 text-[11px] leading-relaxed">Remove redundant hospital supplies; add infant diapers, pediatric medicines, and baby-care items; replace underwire bras with wireless/stretchable nursing bras.</p>
+                        </div>
+                        <div class="bg-slate-800 p-3.5 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-unfpa-orange font-bold block text-xs">2. Strengthen AAP</strong>
+                            <p class="text-slate-300 text-[11px] leading-relaxed">Restore hotlines and install physical feedback boxes; establish a 14-day closed-loop feedback follow-up tracker.</p>
+                        </div>
+                        <div class="bg-slate-800 p-3.5 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-unfpa-orange font-bold block text-xs">3. Improve Coordination</strong>
+                            <p class="text-slate-300 text-[11px] leading-relaxed">Align UNFPA and DOH inventories; validate beneficiary lists with MSWDO emergency registries to prevent duplication and prioritize PWDs/PLWs.</p>
+                        </div>
+                        <div class="bg-slate-800 p-3.5 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-unfpa-orange font-bold block text-xs">4. Integrate Cash Assistance</strong>
+                            <p class="text-slate-300 text-[11px] leading-relaxed">Assess markets and introduce multipurpose cash assistance alongside NFI distributions to address food, medicine, and infant-nutrition needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: CONTEXT & SCOPE -->
+        <section id="content-context" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">2. Rationale, Context & Operational Scope</h2>
+                        <p class="text-xs text-slate-500">Region XII Emergency SRHiE & GBViE Response Assessment</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-earthquake text-unfpa-orange"></i>
+                        Humanitarian Context
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
+                                Seismic Impact
+                            </span>
+                            <p class="leading-relaxed">
+                                <strong>8 June 2026:</strong> A 7.8-magnitude offshore earthquake struck Sarangani, causing widespread ground shaking, landslides, and soil liquefaction across parts of Region XII.
+                            </p>
+                            <p class="leading-relaxed">
+                                Health facilities sustained structural damage, prompting the establishment of temporary emergency maternity spaces in outdoor and tent environments.
+                            </p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <span class="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-800">
+                                Displacement & Vulnerability
+                            </span>
+                            <p class="leading-relaxed">
+                                Displacement significantly heightened risks and barriers related to Sexual & Reproductive Health (SRH), Menstrual Hygiene Management (MHM), Gender-Based Violence (GBV) protection, sanitation, and maternal/newborn care.
+                            </p>
+                            <p class="leading-relaxed">
+                                <strong>53.0% (170)</strong> of surveyed households were large family units (6+ members) with a <strong>127.6% household dependency ratio</strong>, markedly increasing domestic care burdens on female primary caregivers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-hand-holding-handtext text-unfpa-orange"></i>
+                        UNFPA Emergency Response Framework
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Grounded in UNFPA’s 9th Country Programme (9CP) and operating across the Humanitarian-Development-Peace Nexus, UNFPA, in close partnership with the Department of Health (DOH), Department of Social Welfare and Development (DSWD), Integrated Provincial Health Offices (IPHOs), and partner UNYPHIL-Women, deployed multi-faceted emergency assistance:
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <div class="flex items-center gap-2 text-unfpa-orange font-bold">
+                                <i class="fa-solid fa-box-open text-base"></i>
+                                <span>Dignity Kits</span>
+                            </div>
+                            <ul class="text-slate-600 space-y-1 list-disc list-inside text-[11px] leading-relaxed">
+                                <li>Essential hygiene and menstrual health supplies</li>
+                                <li>Protective items (flashlight, whistle), undergarments, slippers, and traditional <em>malong</em></li>
+                                <li>Targeted to WRAs, adolescent girls, female caregivers, GBV survivors, and PWDs</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <div class="flex items-center gap-2 text-sky-600 font-bold">
+                                <i class="fa-solid fa-baby-carriage text-base"></i>
+                                <span>Maternity Packs</span>
+                            </div>
+                            <ul class="text-slate-600 space-y-1 list-disc list-inside text-[11px] leading-relaxed">
+                                <li>Newborn clothing, receiving blankets, cloth diapers, and postpartum sanitary supplies</li>
+                                <li>Targeted to pregnant and lactating women in evacuation communities and health facility wards</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <div class="flex items-center gap-2 text-emerald-600 font-bold">
+                                <i class="fa-solid fa-tent-arrow-left-right text-base"></i>
+                                <span>Emergency Maternity Tents</span>
+                            </div>
+                            <ul class="text-slate-600 space-y-1 list-disc list-inside text-[11px] leading-relaxed">
+                                <li>Deployed Emergency Maternity Tent Facilities (EMTFs)</li>
+                                <li>Provided temporary clinical spaces supporting labor, safe delivery, and immediate postpartum care at damaged health facilities</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot text-unfpa-orange"></i>
+                        Geographic Coverage & Sample Scope
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        The assessment covered <strong>321 validated PDM respondents</strong> across 4 priority municipalities in Sarangani Province and South Cotabato:
+                    </p>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left border-collapse border border-slate-200 rounded-lg bg-white">
+                            <thead>
+                                <tr class="bg-unfpa-navy text-white text-[11px]">
+                                    <th class="p-2.5 border border-slate-300 font-semibold">Province</th>
+                                    <th class="p-2.5 border border-slate-300 font-semibold">Municipality</th>
+                                    <th class="p-2.5 border border-slate-300 font-semibold">Monitored Respondents</th>
+                                    <th class="p-2.5 border border-slate-300 font-semibold">Share of Sample (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-slate-700 text-[11px]">
+                                <tr>
+                                    <td class="p-2.5 border font-medium">Sarangani Province</td>
+                                    <td class="p-2.5 border font-semibold text-slate-800">Malapatan</td>
+                                    <td class="p-2.5 border font-bold text-unfpa-orange">170</td>
+                                    <td class="p-2.5 border font-bold">53.0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 border font-medium">Sarangani Province</td>
+                                    <td class="p-2.5 border font-semibold text-slate-800">Glan</td>
+                                    <td class="p-2.5 border font-bold text-unfpa-navy">98</td>
+                                    <td class="p-2.5 border font-bold">30.5%</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 border font-medium">Sarangani Province</td>
+                                    <td class="p-2.5 border font-semibold text-slate-800">Alabel</td>
+                                    <td class="p-2.5 border font-bold text-sky-600">22</td>
+                                    <td class="p-2.5 border font-bold">6.9%</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2.5 border font-medium">South Cotabato</td>
+                                    <td class="p-2.5 border font-semibold text-slate-800">Lake Sebu</td>
+                                    <td class="p-2.5 border font-bold text-amber-600">30</td>
+                                    <td class="p-2.5 border font-bold">9.3%</td>
+                                </tr>
+                                <tr class="bg-slate-100 font-bold text-slate-900">
+                                    <td class="p-2.5 border" colspan="2">TOTAL MONITORED RESPONDENTS</td>
+                                    <td class="p-2.5 border text-unfpa-orange">321</td>
+                                    <td class="p-2.5 border">100.0%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-[11px] text-slate-500 italic">
+                        <strong>Key geographic considerations:</strong> Coastal and upland displacement camps, landslide-damaged mountain routes, and geographically isolated indigenous (T'boli) communities in Lake Sebu.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-3 pt-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-bullseye"></i>
+                            Post-Distribution Monitoring (PDM) Core Objectives
+                        </h3>
+                        <span class="text-[10px] bg-slate-800 px-2.5 py-1 rounded-full text-slate-300 border border-slate-700">
+                            Assessment Window: 3–8 August 2026
+                        </span>
+                    </div>
+
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        The field monitoring deployment systematically examined five core evaluation pillars:
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 text-xs pt-1">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-unfpa-orange font-bold block text-[11px]">1. Coverage & Reach</strong>
+                            <p class="text-[10px] text-slate-300">Did assistance successfully reach intended vulnerable groups (PLWs, WRAs, PWDs, adolescents, IP communities)?</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-sky-400 font-bold block text-[11px]">2. Timeliness & Logistics</strong>
+                            <p class="text-[10px] text-slate-300">Was distribution timely, physically accessible, safe, and well-managed across venues and hospital wards?</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-emerald-400 font-bold block text-[11px]">3. Quality & Utility</strong>
+                            <p class="text-[10px] text-slate-300">Were kit commodities complete, undamaged, culturally appropriate, and actively utilized by recipients?</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-amber-400 font-bold block text-[11px]">4. Protection & AAP</strong>
+                            <p class="text-[10px] text-slate-300">Were assistance, venues, and feedback channels unconditional, safe, inclusive, confidential, and accountable?</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-purple-400 font-bold block text-[11px]">5. Action Planning</strong>
+                            <p class="text-[10px] text-slate-300">What operational gaps, lessons, and joint action points should guide ongoing recovery and future disaster preparedness?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: METHODOLOGY -->
+        <section id="content-methodology" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">3. Methodology & Operational Approach</h2>
+                        <p class="text-xs text-slate-500">Region XII Emergency Response Assessment | August 2026 PDM Deployment</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 pb-2">
+                        <i class="fa-solid fa-diagram-project text-unfpa-orange"></i>
+                        3.1 Study Design
+                    </h3>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs text-slate-700">
+                        <strong class="text-slate-900 font-bold block text-xs">3.1.1 Mixed-Methods Approach</strong>
+                        <p class="leading-relaxed">
+                            The evaluation utilized a concurrent mixed-methods design to triangulate quantitative trends with qualitative lived experiences across displaced communities and health facilities:
+                        </p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                            <li class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm space-y-1">
+                                <span class="font-bold text-unfpa-orange block"><i class="fa-solid fa-clipboard-check mr-1.5"></i>321 Surveys</span>
+                                <span class="text-[11px] text-slate-600 block">Validated individual & household quantitative survey interviews.</span>
+                            </li>
+                            <li class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm space-y-1">
+                                <span class="font-bold text-unfpa-navy block"><i class="fa-solid fa-users text-sky-600 mr-1.5"></i>8 FGDs / 62 Participants</span>
+                                <span class="text-[11px] text-slate-600 block">Age-disaggregated focus groups (Youth & Adult cohorts).</span>
+                            </li>
+                            <li class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm space-y-1">
+                                <span class="font-bold text-emerald-700 block"><i class="fa-solid fa-comments mr-1.5"></i>Informal Interviews</span>
+                                <span class="text-[11px] text-slate-600 block">Engagements with RHU health personnel, BHWs, evacuation focal points & community leaders.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 text-xs text-slate-700">
+                        <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 pb-2">
+                            <i class="fa-solid fa-chart-pie text-unfpa-orange"></i>
+                            3.2 Quantitative Sampling
+                        </h3>
+                        <div class="space-y-2">
+                            <div>
+                                <strong class="text-slate-900 font-bold block text-[11px]">3.2.1 Sampling Frame:</strong>
+                                <p class="text-[11px] text-slate-600">1,583 registered assistance packages (922 Dignity Kits & 661 Maternity Packs).</p>
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 font-bold block text-[11px]">3.2.2 Sample Parameters:</strong>
+                                <ul class="list-disc list-inside text-[11px] text-slate-600 space-y-0.5">
+                                    <li>Target Sample: 351 respondents | Validated Sample: 321 respondents</li>
+                                    <li>Statistical Standard: 95% Confidence Level, 10% Margin of Error</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 font-bold block text-[11px]">3.2.3 Geographic Coverage:</strong>
+                                <p class="text-[11px] text-slate-600">Four priority municipalities in Region XII: Glan, Malapatan, Alabel (Sarangani) and Lake Sebu (South Cotabato).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 text-xs text-slate-700">
+                        <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 pb-2">
+                            <i class="fa-solid fa-people-group text-unfpa-orange"></i>
+                            3.3 Qualitative Sampling
+                        </h3>
+                        <div class="space-y-2">
+                            <div>
+                                <strong class="text-slate-900 font-bold block text-[11px]">3.3.1 Focus Group Discussions (8 sessions / 62 participants):</strong>
+                                <ul class="list-disc list-inside text-[11px] text-slate-600 space-y-0.5">
+                                    <li>Youth Cohort (15–24 yrs): 4 sessions, 28 participants</li>
+                                    <li>Adult Cohort (25+ yrs): 4 sessions, 34 participants</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-slate-900 font-bold block text-[11px]">3.3.2 Key Discussion Areas:</strong>
+                                <p class="text-[11px] text-slate-600 leading-relaxed">
+                                    SRH & MHM needs, earthquake water access constraints, maternal care integration, kit commodity utility, physical mobility barriers, and AAP/feedback mechanism preferences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 pb-2">
+                        <i class="fa-solid fa-mobile-screen-button text-unfpa-orange"></i>
+                        3.4 Data Collection & Field Deployment
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+                            <strong class="text-unfpa-navy font-bold block text-[11px]">3.4.1 Data Collection Period</strong>
+                            <p class="text-[11px] text-slate-600">3–8 August 2026 active field monitoring deployment across coastal, upland, and hospital ward sites.</p>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+                            <strong class="text-unfpa-navy font-bold block text-[11px]">3.4.2 Digital Survey Tool</strong>
+                            <p class="text-[11px] text-slate-600">KoboToolbox mobile application featuring automated skip logic and mandatory validation controls.</p>
+                        </div>
+                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1">
+                            <strong class="text-unfpa-navy font-bold block text-[11px]">3.4.3 Field Deployment Team</strong>
+                            <p class="text-[11px] text-slate-600">8 local bilingual enumerators, 4 qualitative FGD facilitators, 1 IP community coordinator, and UNFPA M&E/humanitarian officers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="bg-emerald-50/60 p-4 rounded-xl border border-emerald-200 space-y-3 text-xs text-slate-700">
+                        <h3 class="text-xs font-bold text-emerald-900 uppercase tracking-wider flex items-center gap-2 border-b border-emerald-200 pb-2">
+                            <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                            3.5 Ethics & Do-No-Harm
+                        </h3>
+                        <div class="space-y-2">
+                            <div>
+                                <strong class="text-emerald-950 font-bold block text-[11px]">3.5.1 Participant Protection:</strong>
+                                <ul class="list-disc list-inside text-[11px] text-slate-700 space-y-0.5">
+                                    <li>Explicit informed verbal consent establishing unconditionality of assistance.</li>
+                                    <li>Strict data confidentiality and complete anonymization.</li>
+                                    <li>Safe, private, and culturally adapted data collection spaces.</li>
+                                    <li>Trauma-informed facilitation in local dialects (Cebuano, Hiligaynon, Blaan).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-emerald-950 font-bold block text-[11px]">3.5.2 Referral & Protection Pathways:</strong>
+                                <p class="text-[11px] text-slate-700 leading-relaxed">
+                                    Active referral linkages with LSWDO social workers and RHU health officers for GBV protection concerns, maternal health complications, and acute pediatric distress.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50/60 p-4 rounded-xl border border-amber-200 space-y-3 text-xs text-slate-700">
+                        <h3 class="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-2 border-b border-amber-200 pb-2">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
+                            3.6 Scope & Limitations
+                        </h3>
+                        <div class="space-y-2">
+                            <div>
+                                <strong class="text-amber-950 font-bold block text-[11px]">3.6.1 Assessment Scope:</strong>
+                                <p class="text-[11px] text-slate-700">Evaluated Dignity Kits, Maternity Packs, and Emergency Maternity Tent Facilities (EMTFs).</p>
+                            </div>
+                            <div>
+                                <strong class="text-amber-950 font-bold block text-[11px]">3.6.2 Geographic Limitation:</strong>
+                                <p class="text-[11px] text-slate-700">Restricted to four target municipalities in Region XII; findings reflect monitored sites and are not generalizable across all earthquake-affected regions.</p>
+                            </div>
+                            <div>
+                                <strong class="text-amber-950 font-bold block text-[11px]">3.6.3 Methodological Limitations:</strong>
+                                <p class="text-[11px] text-slate-700 leading-relaxed">
+                                    Retrospective recall bias, incomplete beneficiary registries at baseline, enumeration travel delays in mountain sitios, smaller facility-based samples (Alabel), and telecommunications outages in Glan and Lake Sebu.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB: DEMOGRAPHICS -->
+        <section id="content-demographics" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">4. Findings of the PDM Activity</h2>
+                        <p class="text-xs text-slate-500 font-semibold">4.1 Demographic Findings</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high"></i> Dashboard Snapshot: Demographics
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Respondents</span>
+                            <span class="text-lg font-black text-white">321</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Dignity Kits</span>
+                            <span class="text-lg font-black text-unfpa-orange">78.2%</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Maternity Packs</span>
+                            <span class="text-lg font-black text-sky-400">21.8%</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Lactating / Nursing</span>
+                            <span class="text-lg font-black text-emerald-400">58.6%</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Large Households</span>
+                            <span class="text-lg font-black text-amber-400">53.0%</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">PWD Respondents</span>
+                            <span class="text-lg font-black text-purple-400">23.7%</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Children &lt;18</span>
+                            <span class="text-lg font-black text-rose-400">52.0%</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700">
+                            <span class="block text-slate-400 text-[10px] font-semibold">Avg Household Size</span>
+                            <span class="text-lg font-black text-white">5.16</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <strong class="text-slate-900 font-bold block text-xs border-b border-slate-200 pb-1.5 flex items-center justify-between">
+                            <span><i class="fa-solid fa-users text-unfpa-orange mr-1.5"></i>4.1.1 Respondent & Geographic Profile</span>
+                            <span class="text-[10px] text-slate-500 font-normal">321 Validated</span>
+                        </strong>
+                        <ul class="space-y-1.5 text-slate-700">
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Validated Respondents:</strong></span>
+                                <span class="font-bold text-slate-900">321</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Dignity Kit Recipients:</strong></span>
+                                <span class="font-bold text-unfpa-orange">251 (78.2%)</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Maternity Pack Recipients:</strong></span>
+                                <span class="font-bold text-sky-600">70 (21.8%)</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Sarangani Province:</strong></span>
+                                <span class="font-bold text-slate-800">291 (90.7%)</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>South Cotabato:</strong></span>
+                                <span class="font-bold text-slate-800">30 (9.3%)</span>
+                            </li>
+                        </ul>
+                        <div class="bg-orange-50/80 p-2.5 rounded-lg border border-orange-200 text-slate-700">
+                            <strong class="text-[11px] font-bold text-orange-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                            <p class="text-[11px] leading-relaxed">The PDM sample was concentrated in Sarangani, particularly Malapatan (53.0%) and Glan (30.5%), reflecting the primary distribution footprint.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                        <strong class="text-slate-900 font-bold block text-xs border-b border-slate-200 pb-1.5 flex items-center justify-between">
+                            <span><i class="fa-solid fa-cake-candles text-unfpa-navy mr-1.5"></i>4.1.2 Age Profile</span>
+                            <span class="text-[10px] text-slate-500 font-normal">3 Cohorts</span>
+                        </strong>
+                        <ul class="space-y-1.5 text-slate-700">
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Adults (25+ years):</strong></span>
+                                <span class="font-bold text-unfpa-navy">200 (62.3%)</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Youth (18–24 years):</strong></span>
+                                <span class="font-bold text-unfpa-orange">106 (33.0%)</span>
+                            </li>
+                            <li class="flex justify-between items-center bg-white p-2 rounded border border-slate-200">
+                                <span><strong>Minors (&lt;18 years):</strong></span>
+                                <span class="font-bold text-amber-600">15 (4.7%)</span>
+                            </li>
+                        </ul>
+                        <div class="bg-blue-50/80 p-2.5 rounded-lg border border-blue-200 text-slate-700">
+                            <strong class="text-[11px] font-bold text-unfpa-navy block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                            <p class="text-[11px] leading-relaxed">37.7% of respondents were youth or minors, highlighting the need for age-responsive SRH, MHM, protection and feedback mechanisms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.1.2 Age Cohort Distribution</h3>
+                        <div class="chart-container">
+                            <canvas id="demographicsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.1.3 Maternal & Reproductive Profile Chart</h3>
+                        <div class="chart-container">
+                            <canvas id="maternalChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-200 space-y-3 text-xs">
+                    <h4 class="text-xs font-bold text-orange-900 uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-person-breastfeeding text-unfpa-orange"></i>
+                        4.1.3 Maternal & Reproductive Profile
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-slate-800 pt-1">
+                        <div class="bg-white p-2.5 rounded-lg border border-orange-200 text-center">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">Lactating / Nursing</span>
+                            <span class="text-sm font-bold text-unfpa-orange">188 (58.6%)</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded-lg border border-orange-200 text-center">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">Third Trimester</span>
+                            <span class="text-sm font-bold text-slate-800">85 (26.5%)</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded-lg border border-orange-200 text-center">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">Second Trimester</span>
+                            <span class="text-sm font-bold text-slate-800">39 (12.1%)</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded-lg border border-orange-200 text-center">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">First Trimester</span>
+                            <span class="text-sm font-bold text-slate-800">9 (2.8%)</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-orange-200 text-slate-700">
+                        <strong class="text-[11px] font-bold text-orange-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">More than half (58.6%) were lactating/nursing, while 26.5% were in their third trimester, indicating continuing needs for maternal, newborn and postpartum support.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 border-t border-slate-200">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.1.4 Household Size Categories</h3>
+                        <div class="chart-container">
+                            <canvas id="householdChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.1.5 Disability Inclusion Rate by Location</h3>
+                        <div class="chart-container">
+                            <canvas id="pwdChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-4 text-xs">
+                    <h4 class="text-xs font-bold text-unfpa-orange uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-house-user"></i>
+                        4.1.4 Household Size & Dependency
+                    </h4>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left border-collapse border border-slate-700 rounded-lg bg-slate-800/90 text-slate-200">
+                            <thead>
+                                <tr class="bg-slate-800 text-unfpa-orange text-[11px] border-b border-slate-700">
+                                    <th class="p-2 border border-slate-700 font-bold">Household Indicator</th>
+                                    <th class="p-2 border border-slate-700 font-bold">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-700 text-[11px]">
+                                <tr><td class="p-2 border border-slate-700 font-medium">Average household size</td><td class="p-2 border border-slate-700 font-bold text-white">5.16 members</td></tr>
+                                <tr><td class="p-2 border border-slate-700 font-medium">Large households (6+ members)</td><td class="p-2 border border-slate-700 font-bold text-unfpa-orange">170 (53.0%)</td></tr>
+                                <tr><td class="p-2 border border-slate-700 font-medium">Medium households (4–5 members)</td><td class="p-2 border border-slate-700 font-bold text-sky-400">127 (39.6%)</td></tr>
+                                <tr><td class="p-2 border border-slate-700 font-medium">Small households (2–3 members)</td><td class="p-2 border border-slate-700 font-bold text-slate-300">24 (7.5%)</td></tr>
+                                <tr><td class="p-2 border border-slate-700 font-medium">Total population represented</td><td class="p-2 border border-slate-700 font-bold text-emerald-400">1,657 individuals</td></tr>
+                                <tr><td class="p-2 border border-slate-700 font-medium">Dependency ratio</td><td class="p-2 border border-slate-700 font-bold text-amber-400">127.6%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="space-y-2.5">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <strong class="text-unfpa-orange font-bold block text-[11px] mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                            <p class="text-slate-300 leading-relaxed text-[11px]">The 127.6% dependency ratio indicates a substantial burden of dependents relative to the working-age household population. Combined with 53.0% large households, this contributed to extensive sharing of kit items among family members and, in some remote Lake Sebu mountain sitios, with unassisted neighbors.</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <strong class="text-amber-400 font-bold block text-[11px] mb-0.5"><i class="fa-solid fa-boxes-packing mr-1"></i>Operational Finding:</strong>
+                            <p class="text-slate-300 leading-relaxed text-[11px]">Large household structures and high dependency accelerated depletion of consumable items—including bath soap, laundry detergent and toothpaste—within 2–3 weeks.</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <strong class="text-sky-400 font-bold block text-[11px] mb-0.5"><i class="fa-solid fa-diagram-project mr-1"></i>Programming Implication:</strong>
+                            <p class="text-slate-300 leading-relaxed text-[11px]">Future kit design should consider household size and dependency burden, with adjusted quantities and replenishment cycles for larger and highly dependent households.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50/60 p-4 rounded-xl border border-blue-200 space-y-3 text-xs">
+                    <h4 class="text-xs font-bold text-unfpa-navy uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-wheelchair text-unfpa-navy"></i>
+                        4.1.5 Social Inclusion & Vulnerability
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-slate-800">
+                        <div class="bg-white p-3 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">PWD Respondents</span>
+                            <span class="text-base font-bold text-purple-700 block">76 (23.7%)</span>
+                            <p class="text-[11px] text-slate-600">Active participation across monitored areas.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">Children &lt;18 Years</span>
+                            <span class="text-base font-bold text-rose-600 block">861 (52.0%)</span>
+                            <p class="text-[11px] text-slate-600">52.0% of overall household population (1,657).</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">Senior Citizens (60+)</span>
+                            <span class="text-base font-bold text-slate-800 block">68 (4.1%)</span>
+                            <p class="text-[11px] text-slate-600">Co-residing elderly dependents in households.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-semibold">Malapatan PWDs</span>
+                            <span class="text-base font-bold text-unfpa-navy block">65 (38.2%)</span>
+                            <p class="text-[11px] text-slate-600">Targeted MSWDO profiling in camp sites.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-blue-200 text-slate-700">
+                        <strong class="text-[11px] font-bold text-unfpa-navy block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">The high proportion of children, PWDs and other dependent household members reinforces the need for inclusive distribution arrangements, including priority access, accessible venues and home delivery where mobility is constrained.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-4 text-xs">
+                    <h4 class="text-xs font-bold text-unfpa-orange uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line"></i>
+                        4.1.6 Overall Demographic Takeaways
+                    </h4>
+                    
+                    <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700 text-slate-300">
+                        <strong class="text-amber-400 font-bold block text-xs mb-1">High dependency + large households = accelerated household consumption and sharing.</strong>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 text-center">
+                        <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
+                            <span class="text-base font-black text-amber-400 block">127.6%</span>
+                            <span class="text-[10px] text-slate-400 block font-semibold">Dependency Ratio</span>
+                        </div>
+                        <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
+                            <span class="text-base font-black text-unfpa-orange block">53.0%</span>
+                            <span class="text-[10px] text-slate-400 block font-semibold">Large Households</span>
+                        </div>
+                        <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
+                            <span class="text-base font-black text-white block">5.16</span>
+                            <span class="text-[10px] text-slate-400 block font-semibold">Avg Household Size</span>
+                        </div>
+                        <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
+                            <span class="text-base font-black text-emerald-400 block">58.6%</span>
+                            <span class="text-[10px] text-slate-400 block font-semibold">Lactating / Nursing</span>
+                        </div>
+                        <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
+                            <span class="text-base font-black text-purple-400 block">23.7%</span>
+                            <span class="text-[10px] text-slate-400 block font-semibold">PWD Respondents</span>
+                        </div>
+                        <div class="bg-slate-800 p-2.5 rounded-lg border border-slate-700">
+                            <span class="text-base font-black text-rose-400 block">52.0%</span>
+                            <span class="text-[10px] text-slate-400 block font-semibold">Children &lt;18</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/90 p-3.5 rounded-lg border border-slate-700 space-y-1">
+                        <strong class="text-unfpa-orange font-bold block text-[11px] uppercase"><i class="fa-solid fa-lightbulb mr-1"></i>Overall Implication:</strong>
+                        <p class="text-slate-300 leading-relaxed text-[11px]">
+                            The beneficiary profile demonstrates that household-level vulnerability significantly shaped the adequacy and utilization of emergency kits. Future assistance should account for dependency burden, household size, maternal status, disability and intra-household/community sharing when determining kit composition, quantities and replenishment schedules.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="toggleTable('demoTable')" class="text-xs font-bold text-unfpa-orange hover:underline flex items-center gap-1">
+                        <i class="fa-solid fa-table"></i> Toggle Raw Demographic Data Tables (9pt Font)
+                    </button>
+                    <div id="demoTable" class="hidden mt-3 overflow-x-auto border border-slate-200 rounded-lg">
+                        <div style="font-size: 9pt;" class="p-3 bg-white text-slate-700">
+                            <p class="font-bold mb-2">Sample Breakdown by Location and Kit Type:</p>
+                            <table class="w-full text-left border-collapse border border-slate-200">
+                                <thead>
+                                    <tr class="bg-slate-100 border-b border-slate-200">
+                                        <th class="p-1.5 border">Municipality</th>
+                                        <th class="p-1.5 border">Dignity Kits</th>
+                                        <th class="p-1.5 border">Maternity Packs</th>
+                                        <th class="p-1.5 border">Total Recipients</th>
+                                        <th class="p-1.5 border">Share (%)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="p-1.5 border">Malapatan</td><td class="p-1.5 border">141</td><td class="p-1.5 border">29</td><td class="p-1.5 border">170</td><td class="p-1.5 border">53.0%</td></tr>
+                                    <tr><td class="p-1.5 border">Glan</td><td class="p-1.5 border">82</td><td class="p-1.5 border">16</td><td class="p-1.5 border">98</td><td class="p-1.5 border">30.5%</td></tr>
+                                    <tr><td class="p-1.5 border">Lake Sebu</td><td class="p-1.5 border">27</td><td class="p-1.5 border">3</td><td class="p-1.5 border">30</td><td class="p-1.5 border">9.3%</td></tr>
+                                    <tr><td class="p-1.5 border">Alabel</td><td class="p-1.5 border">0</td><td class="p-1.5 border">22</td><td class="p-1.5 border">22</td><td class="p-1.5 border">6.9%</td></tr>
+                                    <tr><td class="p-1.5 border">Other</td><td class="p-1.5 border">1</td><td class="p-1.5 border">0</td><td class="p-1.5 border">1</td><td class="p-1.5 border">0.3%</td></tr>
+                                    <tr class="font-bold bg-slate-50"><td class="p-1.5 border">TOTAL</td><td class="p-1.5 border">251</td><td class="p-1.5 border">70</td><td class="p-1.5 border">321</td><td class="p-1.5 border">100.0%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: DELIVERY & AAP -->
+        <section id="content-delivery" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">4. Findings of the PDM Activity</h2>
+                        <p class="text-xs text-slate-500 font-semibold">4.2 Delivery Process, Selection & Accountability</p>
+                    </div>
+                </div>
+
+                <!-- Section 4.2.1 Selection Transparency -->
+                <div class="bg-orange-50/60 p-5 rounded-xl border border-orange-200 space-y-3">
+                    <h3 class="text-xs font-bold text-orange-900 uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-bullhorn text-unfpa-orange"></i>
+                        4.2.1 Selection Transparency
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Knew Selection Criteria</span>
+                            <span class="text-lg font-black text-unfpa-orange block">71.3% (229/321)</span>
+                            <p class="text-[11px] text-slate-600">knew why/how they were selected.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Unaware of Criteria</span>
+                            <span class="text-lg font-black text-slate-800 block">28.7% (92/321)</span>
+                            <p class="text-[11px] text-slate-600">were unaware of selection reasons.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Location Extremes</span>
+                            <span class="text-sm font-bold text-slate-800 block">Malapatan 80.6% vs Glan 57.1%</span>
+                            <p class="text-[11px] text-slate-600">Highest in Malapatan, lowest in Glan.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-orange-200 mt-2">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.2.1 Selection Criteria Awareness</h3>
+                        <div class="chart-container">
+                            <canvas id="transparencyChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-lg border border-orange-200 text-slate-700 text-xs space-y-1">
+                        <strong class="text-[11px] font-bold text-orange-900 block"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Selection communication was generally effective but nearly 3 in 10 beneficiaries lacked awareness of selection criteria. BHW outreach and direct facility briefings improved awareness, while youth and remote communities relied more on indirect communication.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 4.2.2 Supply Quality & Completeness -->
+                <div class="bg-blue-50/60 p-5 rounded-xl border border-blue-200 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-box-open text-unfpa-navy"></i>
+                        4.2.2 Supply Quality & Completeness
+                    </h3>
+
+                    <!-- 4.2.2 Chart Visual -->
+                    <div class="bg-white p-4 rounded-xl border border-blue-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.2.2 Pre-Dispatch Kit Completeness</h3>
+                        <div class="chart-container">
+                            <canvas id="completenessChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Placed directly after 4.2.2 visual -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left border-collapse border border-blue-200 rounded-lg bg-white text-slate-700">
+                            <thead>
+                                <tr class="bg-unfpa-navy text-white text-[11px]">
+                                    <th class="p-2.5 border border-slate-300 font-semibold">Indicator</th>
+                                    <th class="p-2.5 border border-slate-300 font-semibold">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-[11px]">
+                                <tr>
+                                    <td class="p-2 border font-medium">Dignity Kits complete</td>
+                                    <td class="p-2 border font-bold text-unfpa-navy">83.1% (207/249)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Maternity Packs complete</td>
+                                    <td class="p-2 border font-bold text-sky-600">75.4% (52/69)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Dignity Kits with missing items</td>
+                                    <td class="p-2 border font-bold text-amber-600">16.9%</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Maternity Packs with missing items</td>
+                                    <td class="p-2 border font-bold text-rose-600">24.6%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 text-xs">
+                        <div class="bg-white p-3 rounded-lg border border-blue-200">
+                            <strong class="text-[11px] font-bold text-unfpa-navy block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                            <p class="text-[11px] leading-relaxed">While overall item quality was rated positively, completeness remained a significant operational gap, particularly for Maternity Packs.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-blue-200">
+                            <strong class="text-[11px] font-bold text-amber-800 block mb-0.5"><i class="fa-solid fa-gears mr-1"></i>Operational Implication:</strong>
+                            <p class="text-[11px] leading-relaxed">Strengthen pre-dispatch kitting, inventory verification and final quality checks to reduce missing items.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4.2.3 Distribution Conduct & PSEA -->
+                <div class="bg-emerald-50/60 p-5 rounded-xl border border-emerald-200 space-y-3">
+                    <h3 class="text-xs font-bold text-emerald-900 uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                        4.2.3 Distribution Conduct & Protection (PSEA)
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-700">
+                        <div class="bg-white p-2.5 rounded-lg border border-emerald-200 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>100% Unconditional Aid:</strong> 100% (321/321) reported receiving aid without coercion, payment or favors.</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded-lg border border-emerald-200 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>Zero PSEA Incidents:</strong> No reported PSEA-related incidents across all monitored distribution sites.</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded-lg border border-emerald-200 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>Respectful Conduct:</strong> FGDs consistently described staff and volunteers as calm, respectful and organized.</span>
+                        </div>
+                        <div class="bg-white p-2.5 rounded-lg border border-emerald-200 flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-600 mt-0.5"></i>
+                            <span><strong>Priority Arrangements:</strong> Priority arrangements supported pregnant/lactating women and PWDs.</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-emerald-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-emerald-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">Protection safeguards and unconditional aid delivery were strongly upheld, with positive perceptions of staff conduct across locations.</p>
+                    </div>
+                </div>
+
+                <!-- Section 4.2.4 Feedback & Complaints Mechanisms (AAP) -->
+                <div class="bg-rose-50/60 p-5 rounded-xl border border-rose-200 space-y-3">
+                    <h3 class="text-xs font-bold text-rose-900 uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-comments text-rose-600"></i>
+                        4.2.4 Feedback & Complaints Mechanisms (AAP)
+                    </h3>
+
+                    <!-- 4.2.4 Chart Visual -->
+                    <div class="bg-white p-4 rounded-xl border border-rose-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.2.4 CFM Performance & Follow-up Gap</h3>
+                        <div class="chart-container">
+                            <canvas id="cfmChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left border-collapse border border-rose-200 rounded-lg bg-white text-slate-700">
+                            <thead>
+                                <tr class="bg-rose-900 text-white text-[11px]">
+                                    <th class="p-2.5 border border-rose-200 font-semibold">AAP Indicator</th>
+                                    <th class="p-2.5 border border-rose-200 font-semibold">Result</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-rose-100 text-[11px]">
+                                <tr>
+                                    <td class="p-2 border font-medium">Aware of confidential feedback mechanism</td>
+                                    <td class="p-2 border font-bold text-slate-800">51.1% (164)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Felt safe submitting feedback</td>
+                                    <td class="p-2 border font-bold text-sky-700">67.0% (215)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Actually submitted feedback</td>
+                                    <td class="p-2 border font-bold text-unfpa-orange">18.7% (60)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 border font-medium">Feedback filers receiving no follow-up</td>
+                                    <td class="p-2 border font-bold text-rose-600">100% (60/60)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 text-xs">
+                        <div class="bg-white p-3 rounded-lg border border-rose-200 space-y-1">
+                            <strong class="text-[11px] font-bold text-rose-900 block"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                            <p class="text-[11px] leading-relaxed text-slate-700">
+                                AAP remains the largest accountability gap. Although two-thirds felt safe providing feedback, only half knew of a confidential mechanism, and every respondent who submitted feedback reported receiving no information on action taken.
+                            </p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-rose-200 space-y-1">
+                            <strong class="text-[11px] font-bold text-unfpa-navy block"><i class="fa-solid fa-tower-cell mr-1"></i>Key Operational Insight:</strong>
+                            <p class="text-[11px] leading-relaxed text-slate-700">
+                                Connectivity strongly influenced access:
+                            </p>
+                            <ul class="list-disc list-inside text-[11px] text-slate-600 space-y-0.5 pt-0.5">
+                                <li><strong>Alabel & Malapatan:</strong> mobile/SMS channels were more viable.</li>
+                                <li><strong>Glan & Lake Sebu:</strong> outages and weak signals limited hotline access.</li>
+                                <li><strong>Youth:</strong> preferred anonymous physical complaint boxes or private messaging.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4.2.5 Overall Delivery & Accountability Takeaways Dashboard -->
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-4 text-xs">
+                    <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        4.2.5 Overall Delivery & Accountability Takeaways
+                    </h3>
+
+                    <!-- Four Dashboard KPI Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">1. Selection Awareness</span>
+                            <span class="text-xl font-black text-unfpa-orange block">71.3%</span>
+                            <span class="text-[10px] text-slate-300 block">knew selection criteria</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">2. Kit Completeness</span>
+                            <span class="text-xl font-black text-amber-400 block">80.8%</span>
+                            <span class="text-[10px] text-slate-300 block">complete packs overall</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">3. PSEA Compliance</span>
+                            <span class="text-xl font-black text-emerald-400 block">100%</span>
+                            <span class="text-[10px] text-slate-300 block">unconditional & safe</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-[10px] text-slate-400 block font-semibold uppercase">4. AAP Loop Closure</span>
+                            <span class="text-xl font-black text-rose-400 block">0.0%</span>
+                            <span class="text-[10px] text-slate-300 block">received follow-up</span>
+                        </div>
+                    </div>
+
+                    <!-- What worked / Gaps / Change Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-slate-200">
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-emerald-400 font-bold block text-[11px] uppercase"><i class="fa-solid fa-thumbs-up mr-1"></i>What worked well?</strong>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">100% unconditional aid + respectful staff conduct + strong overall item quality.</p>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-amber-400 font-bold block text-[11px] uppercase"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Where are delivery gaps?</strong>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">16.9% of Dignity Kits and 24.6% of Maternity Packs were incomplete.</p>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-rose-400 font-bold block text-[11px] uppercase"><i class="fa-solid fa-circle-exclamation mr-1"></i>Where is accountability weakest?</strong>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">Only 51.1% knew of confidential channels, while 100% of feedback filers received no follow-up.</p>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <strong class="text-sky-400 font-bold block text-[11px] uppercase"><i class="fa-solid fa-arrows-rotate mr-1"></i>What should change?</strong>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">Improve pre-dispatch quality control, strengthen beneficiary communication, and establish a functioning multi-channel feedback system with mandatory follow-up and closure.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB: LOGISTICS & SAFETY -->
+        <section id="content-logistics" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">4. Findings of the PDM Activity</h2>
+                        <p class="text-xs text-slate-500 font-semibold">4.3 Access, Safety & Overall Satisfaction</p>
+                    </div>
+                </div>
+
+                <!-- 4.3.1 Physical & Geographical Accessibility -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-map-location-dot text-unfpa-orange"></i>
+                        4.3.1 Physical & Geographical Accessibility
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Venue Accessibility</span>
+                            <span class="text-lg font-black text-unfpa-navy block">98.8% (317/321)</span>
+                            <p class="text-[11px] text-slate-600">found distribution venues physically accessible.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Hospital Ward Delivery</span>
+                            <span class="text-sm font-bold text-sky-700 block">Alabel & Glan Wards</span>
+                            <p class="text-[11px] text-slate-600">Postpartum beneficiaries received bedside delivery, eliminating travel burdens.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Camp Proximity</span>
+                            <span class="text-sm font-bold text-emerald-700 block">Malapatan Evacuation Sites</span>
+                            <p class="text-[11px] text-slate-600">Distribution points were located within short walking distance from temporary shelters.</p>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Mountain Terrain</span>
+                            <span class="text-sm font-bold text-amber-700 block">Lake Sebu & Upland Glan</span>
+                            <p class="text-[11px] text-slate-600">Beneficiaries faced landslide-affected terrain, requiring walking or habal-habal travel.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-slate-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-unfpa-navy block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Physical access was generally high, but geographic isolation and damaged mountain routes created significant mobility barriers for upland communities, particularly indigenous beneficiaries in Lake Sebu and Glan. Bedside and community-based delivery effectively reduced these barriers for postpartum mothers and displaced households.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Charts Grid for Section 4.3 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.3.2 Primary Transport Mode to Venues</h3>
+                        <div class="chart-container">
+                            <canvas id="transportChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.3.3 Physical Accessibility & Venue Safety Rating</h3>
+                        <div class="chart-container">
+                            <canvas id="safetyChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.3.2 Transportation & Family Proxy Support -->
+                <div class="bg-blue-50/60 p-5 rounded-xl border border-blue-200 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-person-walking text-unfpa-navy"></i>
+                        4.3.2 Transportation & Family Proxy Support
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Primary Transport Mode</span>
+                            <span class="text-lg font-black text-unfpa-orange block">68.2% (219/321)</span>
+                            <p class="text-[11px] text-slate-600">walked to collection points.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Motorcycle Fare Burden</span>
+                            <span class="text-lg font-black text-amber-700 block">10.9% (35/321)</span>
+                            <p class="text-[11px] text-slate-600">paid for motorcycle (habal-habal) transport, costing PHP 50–300.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-blue-200 text-slate-700 text-xs space-y-1">
+                        <strong class="text-[11px] font-bold text-unfpa-navy block"><i class="fa-solid fa-people-carry-box mr-1"></i>Family & Community Proxy Support:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Parents, household heads and neighbors served as family proxies for youth and recipients facing mobility or transport constraints.
+                        </p>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-blue-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-unfpa-navy block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Walking was the dominant transport mode, but transport costs remained a barrier for remote households. Family and community proxy arrangements helped maintain access for youth, adolescent recipients and young mothers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.3.3 Protection & Safety -->
+                <div class="bg-emerald-50/60 p-5 rounded-xl border border-emerald-200 space-y-3">
+                    <h3 class="text-xs font-bold text-emerald-900 uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                        4.3.3 Protection & Safety
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-emerald-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Perceived Safety Rate</span>
+                            <span class="text-lg font-black text-emerald-700 block">98.8% (317/321)</span>
+                            <p class="text-[11px] text-slate-600">felt safe during transit and at distribution venues.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-emerald-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Venue Safeguards</span>
+                            <span class="text-sm font-bold text-emerald-900 block">Priority Lanes & Shaded Seating</span>
+                            <p class="text-[11px] text-slate-600">Field audits confirmed priority lanes, shaded seating and organized crowd management for PLWs and PWDs.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-emerald-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-emerald-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Distribution points were perceived as safe and orderly, with practical protection measures supporting vulnerable recipients.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.3.4 Timeliness & Overall Satisfaction -->
+                <div class="bg-orange-50/60 p-5 rounded-xl border border-orange-200 space-y-3">
+                    <h3 class="text-xs font-bold text-orange-900 uppercase flex items-center gap-2">
+                        <i class="fa-solid fa-face-smile text-unfpa-orange"></i>
+                        4.3.4 Timeliness & Overall Satisfaction
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Overall Satisfaction</span>
+                            <span class="text-lg font-black text-unfpa-orange block">100% (321/321)</span>
+                            <p class="text-[11px] text-slate-600">reported overall satisfaction with received aid.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Timely Delivery</span>
+                            <span class="text-lg font-black text-sky-700 block">99.4% (319/321)</span>
+                            <p class="text-[11px] text-slate-600">confirmed timely delivery within critical response windows.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-orange-200 text-slate-700 text-xs space-y-1">
+                        <strong class="text-[11px] font-bold text-orange-900 block"><i class="fa-solid fa-hand-holding-dollar mr-1"></i>Financial Relief Impact:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Kits reduced household expenditure on essential hygiene and maternal supplies during displacement.
+                        </p>
+                    </div>
+                    <div class="bg-white p-3 rounded-lg border border-orange-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-orange-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            High satisfaction and timely delivery demonstrate strong operational effectiveness of the emergency NFI response, with beneficiaries reporting that the assistance provided meaningful financial relief during displacement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.3 Dashboard Takeaways Summary -->
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-4 text-xs">
+                    <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        4.3 Dashboard Takeaways
+                    </h3>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-xl font-black text-emerald-400 block">98.8%</span>
+                            <span class="text-[10px] text-slate-300 block font-semibold uppercase">Physical Access</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-xl font-black text-sky-400 block">98.8%</span>
+                            <span class="text-[10px] text-slate-300 block font-semibold uppercase">Perceived Safety</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-xl font-black text-unfpa-orange block">99.4%</span>
+                            <span class="text-[10px] text-slate-300 block font-semibold uppercase">Timely Delivery</span>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 space-y-1">
+                            <span class="text-xl font-black text-amber-400 block">100%</span>
+                            <span class="text-[10px] text-slate-300 block font-semibold uppercase">Overall Satisfaction</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/90 p-3.5 rounded-lg border border-slate-700 space-y-1">
+                        <strong class="text-unfpa-orange font-bold block text-[11px] uppercase"><i class="fa-solid fa-lightbulb mr-1"></i>Overall Summary:</strong>
+                        <p class="text-slate-300 leading-relaxed text-[11px]">
+                            The response achieved very high levels of access, safety, timeliness and satisfaction. However, geographic isolation, damaged routes and transport costs remained important barriers, highlighting the value of bedside delivery, decentralized distribution and proxy collection for hard-to-reach and mobility-constrained beneficiaries.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB: UTILITY & DEMAND -->
+        <section id="content-utility" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-800">4. Findings of the PDM Activity</h2>
+                        <p class="text-xs text-slate-500 font-semibold">4.4 Kit Impact, Utility & Empowerment</p>
+                    </div>
+                </div>
+
+                <!-- 4.4.5 Dashboard Snapshot -->
+                <div class="bg-slate-900 text-white p-5 rounded-xl border border-slate-800 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-orange uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-gauge-high"></i> Dashboard Snapshot: Kit Impact & Utility
+                    </h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 text-center space-y-1">
+                            <span class="block text-slate-400 text-[10px] font-semibold uppercase">Initial Sufficiency</span>
+                            <span class="text-lg font-black text-emerald-400 block">93.5%</span>
+                            <span class="block text-[9px] text-slate-400">(300/321)</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 text-center space-y-1">
+                            <span class="block text-slate-400 text-[10px] font-semibold uppercase">Active Utilization</span>
+                            <span class="text-lg font-black text-unfpa-orange block">95.3%</span>
+                            <span class="block text-[9px] text-slate-400">(306/321)</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 text-center space-y-1">
+                            <span class="block text-slate-400 text-[10px] font-semibold uppercase">Dignity Restored</span>
+                            <span class="text-lg font-black text-sky-400 block">98.1%</span>
+                            <span class="block text-[9px] text-slate-400">(255/260)</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 text-center space-y-1">
+                            <span class="block text-slate-400 text-[10px] font-semibold uppercase">Family Well-being</span>
+                            <span class="text-lg font-black text-amber-400 block">100%</span>
+                            <span class="block text-[9px] text-slate-400">(260/260)</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 text-center space-y-1">
+                            <span class="block text-slate-400 text-[10px] font-semibold uppercase">Disposable MHM Pref</span>
+                            <span class="text-lg font-black text-purple-400 block">100%</span>
+                            <span class="block text-[9px] text-slate-400">Youth Preference</span>
+                        </div>
+                        <div class="bg-slate-800/90 p-3 rounded-lg border border-slate-700 text-center space-y-1">
+                            <span class="block text-slate-400 text-[10px] font-semibold uppercase">Underwire Non-utility</span>
+                            <span class="text-lg font-black text-rose-400 block">8.0%</span>
+                            <span class="block text-[9px] text-slate-400">Fit Mismatch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.4.1 Quantity & Sufficiency -->
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-boxes-stacked text-unfpa-orange"></i>
+                        4.4.1 Quantity & Sufficiency
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-slate-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Immediate Need Fulfillment</span>
+                            <span class="text-lg font-black text-emerald-700 block">93.5% (300/321)</span>
+                            <p class="text-[11px] text-slate-600">reported that initial kit quantities met their immediate relief needs upon distribution.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-slate-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Depletion Rate & Household Size</span>
+                            <span class="text-sm font-bold text-amber-800 block">5.16 Average Members per Household</span>
+                            <p class="text-[11px] text-slate-600">Household sharing and an average household size of 5.16 accelerated depletion of consumables, creating gaps for households displaced beyond 30 days.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.4.2 Item Utilization & Preferences -->
+                <div class="bg-orange-50/60 p-5 rounded-xl border border-orange-200 space-y-4">
+                    <h3 class="text-xs font-bold text-orange-900 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-hand-holding-heart text-unfpa-orange"></i>
+                        4.4.2 Item Utilization & Preferences
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1.5">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Active Utilization Rate</span>
+                            <span class="text-lg font-black text-unfpa-orange block">95.3% (306/321)</span>
+                            <p class="text-[11px] text-slate-600">actively used received items for daily hygiene and maternal/newborn care.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1.5">
+                            <strong class="text-[11px] font-bold text-slate-800 block uppercase">Highest-Utility Commodities:</strong>
+                            <ul class="list-disc list-inside text-[11px] text-slate-600 space-y-1">
+                                <li><strong>Dignity Kits:</strong> <em>malong</em>, <em>tabo</em>, soap, detergent, and sanitary pads.</li>
+                                <li><strong>Maternity Packs:</strong> postpartum pads, hand rub, baby clothes, and receiving blankets.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Visual Charts Grid for 4.4.2 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                        <div class="bg-white p-4 rounded-xl border border-orange-200">
+                            <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.4.2 Active Item Utilization Rates by Municipality</h3>
+                            <div class="chart-container">
+                                <canvas id="utilityChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-orange-200">
+                            <h3 class="text-xs font-bold text-slate-700 uppercase mb-2">4.4.2 MHM Preference Driven by Water Scarcity</h3>
+                            <div class="chart-container">
+                                <canvas id="mhmChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700 pt-1">
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <strong class="text-[11px] font-bold text-amber-900 block"><i class="fa-solid fa-droplet-slash mr-1 text-amber-600"></i>Water Disruptions & MHM Preference:</strong>
+                            <p class="text-[11px] text-slate-600 leading-relaxed">
+                                Water disruptions in Lake Sebu, Glan and Malapatan made reusable MHM products difficult to wash and dry, resulting in a <strong>100% youth preference for disposable sanitary pads</strong> over reusable cloth pads.
+                            </p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-orange-200 space-y-1">
+                            <strong class="text-[11px] font-bold text-rose-900 block"><i class="fa-solid fa-shirt mr-1 text-rose-600"></i>Fit Mismatches & Clinical Redundancies:</strong>
+                            <p class="text-[11px] text-slate-600 leading-relaxed">
+                                <strong>8.0% non-utilization of underwire bras</strong> due to discomfort and sizing issues, particularly among pregnant and lactating women. Hospital Maternity Packs included redundant umbilical cord clamps already routinely supplied by facilities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-3.5 rounded-lg border border-orange-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-orange-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Kit items demonstrated high practical utility, particularly hygiene, MHM, and maternal/newborn supplies. However, water scarcity reduced the feasibility of reusable MHM options, while undergarment sizing and clinical redundancies reduced the appropriateness of selected items.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.4.3 Empowerment & Psychosocial Well-being -->
+                <div class="bg-blue-50/60 p-5 rounded-xl border border-blue-200 space-y-3">
+                    <h3 class="text-xs font-bold text-unfpa-navy uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-face-smile-beam text-unfpa-navy"></i>
+                        4.4.3 Empowerment & Psychosocial Well-being
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs text-slate-700">
+                        <div class="bg-white p-3.5 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Dignity & Self-Worth Restored</span>
+                            <span class="text-lg font-black text-sky-700 block">98.1% (255/260)</span>
+                            <p class="text-[11px] text-slate-600">reported that hygiene and MHM supplies restored personal dignity and self-worth during displacement.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-lg border border-blue-200 space-y-1">
+                            <span class="block text-[10px] text-slate-500 uppercase font-bold">Family Well-being & Financial Resilience</span>
+                            <span class="text-lg font-black text-unfpa-navy block">100% (260/260)</span>
+                            <p class="text-[11px] text-slate-600">said assistance contributed to family well-being and reduced financial stress during crisis recovery.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-lg border border-blue-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-unfpa-navy block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            The intervention extended beyond material relief, contributing strongly to dignity, self-worth and household financial resilience during displacement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4.4.4 Emerging Needs & Unmet Demand -->
+                <div class="bg-amber-50/60 p-5 rounded-xl border border-amber-200 space-y-3">
+                    <h3 class="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-list text-amber-700"></i>
+                        4.4.4 Emerging Needs & Unmet Demand
+                    </h3>
+                    <div class="space-y-2 text-xs text-slate-700">
+                        <strong class="text-[11px] font-bold text-amber-950 block">Priority Requested Items Across Monitored Communities:</strong>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                            <div class="bg-white p-3 rounded-lg border border-amber-200 space-y-1">
+                                <strong class="text-amber-900 font-bold block text-[11px]"><i class="fa-solid fa-baby mr-1 text-unfpa-orange"></i>Infant Care</strong>
+                                <p class="text-[11px] text-slate-600">Infant diapers, baby wipes, and infant formula/milk.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-200 space-y-1">
+                                <strong class="text-amber-900 font-bold block text-[11px]"><i class="fa-solid fa-prescription-bottle-medical mr-1 text-sky-600"></i>Pediatric Medicines</strong>
+                                <p class="text-[11px] text-slate-600">Pediatric medicines, including infant paracetamol.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-200 space-y-1">
+                                <strong class="text-amber-900 font-bold block text-[11px]"><i class="fa-solid fa-bowl-rice mr-1 text-emerald-600"></i>Food Security</strong>
+                                <p class="text-[11px] text-slate-600">Rice and basic food packs.</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-200 space-y-1">
+                                <strong class="text-amber-900 font-bold block text-[11px]"><i class="fa-solid fa-money-bill-wave mr-1 text-purple-600"></i>Cash Assistance</strong>
+                                <p class="text-[11px] text-slate-600">Multipurpose cash assistance (MPC).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3.5 rounded-lg border border-amber-200 text-slate-700 text-xs">
+                        <strong class="text-[11px] font-bold text-amber-900 block mb-0.5"><i class="fa-solid fa-key mr-1"></i>Key Takeaway:</strong>
+                        <p class="text-[11px] leading-relaxed">
+                            Beneficiary needs shifted from immediate hygiene relief toward sustained household, pediatric and nutritional support, indicating that prolonged displacement requires assistance beyond one-time NFI distributions.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB: CHALLENGES & GAPS -->
+        <section id="content-challenges" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <h2 class="text-xl font-bold text-slate-800">5. Key Challenges & Lessons Learned</h2>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="text-sm font-bold text-unfpa-navy uppercase tracking-wide border-b border-slate-200 pb-2">5.1 Operational & Logistical Challenges</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-rose-100 text-rose-700 rounded-full">Transit & Access</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Geographic Isolation & Mountain Transit (Lake Sebu & Glan)</strong>
+                            <p class="text-slate-600 leading-relaxed">Landslide-damaged trails restricted vehicle access, requiring multi-stage transit via motorcycles (habal-habal) and foot travel to reach remote indigenous sitios.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-700 rounded-full">Supply Redundancy</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Clinical Supply Redundancies in Hospital Packs</strong>
+                            <p class="text-slate-600 leading-relaxed">Distributing standard Maternity Packs in health facility wards created supply overlaps (e.g., umbilical cord clamps), indicating a need for distinct facility versus community kit configurations.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-slate-200 text-slate-700 rounded-full">Quality Assurance</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Pre-Dispatch Kitting Quality Control</strong>
+                            <p class="text-slate-600 leading-relaxed">Item omission rates (16.9% incomplete Dignity Kits; 24.6% incomplete Maternity Packs) occurred during rapid kitting operations without standardized checklist verification.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-4 border-t border-slate-200">
+                    <h3 class="text-sm font-bold text-unfpa-navy uppercase tracking-wide border-b border-slate-200 pb-2">5.2 Protection & AAP Bottlenecks</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-sky-100 text-sky-700 rounded-full">Telecom Outages</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Cellular Network Outages & Hotline Responsiveness</strong>
+                            <p class="text-slate-600 leading-relaxed">Telecom outages and unresponsive telephone hotlines in Glan affected digital grievance channels, leading beneficiaries to rely on non-digital alternatives.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-rose-100 text-rose-700 rounded-full">Feedback Gap</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Follow-up Reporting Gap</strong>
+                            <p class="text-slate-600 leading-relaxed">All complaint filers (100.0% or 60) reported receiving no follow-up information regarding actions taken, representing an operational gap in closed-loop communication.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-indigo-100 text-indigo-700 rounded-full">Item Specification</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Undergarment Fit Mismatches</strong>
+                            <p class="text-slate-600 leading-relaxed">Underwired bras included in Dignity Kits caused discomfort for pregnant and lactating women, resulting in an 8.0% non-utility rate.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 pt-4 border-t border-slate-200">
+                    <h3 class="text-sm font-bold text-unfpa-navy uppercase tracking-wide border-b border-slate-200 pb-2">5.3 Strategic Lessons Learned</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-700 rounded-full">WASH & MHM</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Water Access Impacting MHM Preferences</strong>
+                            <p class="text-slate-600 leading-relaxed">Earthquake damage to water supply lines hindered the rewashing of reusable cloth pads, driving a 100.0% beneficiary preference for disposable sanitary napkins.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-purple-100 text-purple-700 rounded-full">Methodology</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Mixed-Methods Data Triangulation</strong>
+                            <p class="text-slate-600 leading-relaxed">Combining quantitative KoboToolbox surveys with age-disaggregated FGDs was necessary to identify protection dynamics, undergarment mismatches, and AAP trust preferences.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
+                            <span class="px-2 py-0.5 text-[10px] font-bold bg-orange-100 text-orange-700 rounded-full">Modality Alignment</span>
+                            <strong class="text-slate-800 font-bold block pt-1">Cash-NFI Complementarity</strong>
+                            <p class="text-slate-600 leading-relaxed">NFI kits fulfill immediate material needs, but complementary Multipurpose Cash Assistance (MPC) is required to address shifting household demands for fresh food, infant milk, and pediatric medicines.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: ACTION PLAN -->
+        <section id="content-action-plan" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                    <h2 class="text-xl font-bold text-slate-800">6. Recommendations & Joint Action Plan</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-sm font-bold text-unfpa-navy uppercase tracking-wide border-b border-slate-200 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-unfpa-orange"></i>
+                        6.1 Operational Priorities for the UNFPA Humanitarian Team
+                    </h3>
+                    
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <strong class="text-slate-800 font-bold block text-xs text-unfpa-navy">1. Supply Chain Calibration & Context-Specific Kit Customization</strong>
+                            <ul class="text-slate-600 space-y-1.5 list-disc list-inside pl-1">
+                                <li><strong>Facility vs. Community Split:</strong> Remove umbilical cord clamps from hospital-bound Maternity Packs to eliminate duplication with pre-existing health ward stock.</li>
+                                <li><strong>Pediatric Item Expansion:</strong> Reallocate procurement savings to incorporate manual breast pumps, pediatric fever medicine (infant Paracetamol 0-12 months), baby wipes, and higher quantities of disposable diapers into community-level distributions.</li>
+                                <li><strong>Undergarment Fit Revision:</strong> Adjust undergarment procurement specifications to replace underwired bras with soft, stretchable, wireless maternity/nursing bras or free-size cotton undergarments.</li>
+                                <li><strong>Distribution Documentation Checklists & Templates:</strong> Provide Integrated Provincial Health Offices (IPHOs) and Rural Health Units (RHUs) with standardized templates and verification checklists necessary to accurately document and report distributions.</li>
+                            </ul>
+                            <span class="text-[10px] text-unfpa-orange font-semibold block pt-1 border-t border-slate-200 mt-2">
+                                <i class="fa-solid fa-user-gear mr-1"></i> Responsible: UNFPA Humanitarian Team & Procurement Unit
+                            </span>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <strong class="text-slate-800 font-bold block text-xs text-unfpa-navy">2. Multi-Channel AAP Mechanism Optimization</strong>
+                            <ul class="text-slate-600 space-y-1.5 list-disc list-inside pl-1">
+                                <li><strong>Hotline Restoration & Local Adaptation:</strong> Troubleshoot telephone hotline responsiveness in Glan. In areas with weak cellular coverage, utilize physical complaint boxes as primary reporting nodes.</li>
+                                <li><strong>Youth-Centric Anonymous Channels:</strong> Expand physical, lockable complaint boxes in youth-dense environments (schools, youth centers, evacuation camps) and establish direct SMS lines with BHW youth coordinators.</li>
+                                <li><strong>Closed-Loop Tracking Protocol:</strong> Institutionalize a central Feedback Log & Tracker across distribution partners to ensure closed-loop communication and status feedback to complainants within 14 days.</li>
+                            </ul>
+                            <span class="text-[10px] text-unfpa-orange font-semibold block pt-1 border-t border-slate-200 mt-2">
+                                <i class="fa-solid fa-user-gear mr-1"></i> Responsible: AAP Focal Point & M&E Unit
+                            </span>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <strong class="text-slate-800 font-bold block text-xs text-unfpa-navy">3. Cash & Voucher Assistance (CVA) Integration</strong>
+                            <ul class="text-slate-600 space-y-1.5 list-disc list-inside pl-1">
+                                <li><strong>Complementary Cash Pilots:</strong> Conduct market feasibility assessments to introduce multipurpose cash assistance alongside NFI kit distributions, providing postpartum mothers financial flexibility to purchase fresh food, infant formula, and pediatric supplies.</li>
+                            </ul>
+                            <span class="text-[10px] text-unfpa-orange font-semibold block pt-1 border-t border-slate-200 mt-2">
+                                <i class="fa-solid fa-user-gear mr-1"></i> Responsible: Humanitarian Team & Cash Working Group Focal Point
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4 border-t border-slate-200">
+                    <h3 class="text-sm font-bold text-unfpa-navy uppercase tracking-wide border-b border-slate-200 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-handshake-simple text-unfpa-orange"></i>
+                        6.2 Practical Field Alignment (UNFPA, DOH, and DSWD)
+                    </h3>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <strong class="text-slate-800 font-bold block text-xs text-unfpa-navy">1. DOH-UNFPA SRH Sub-Cluster Coordination</strong>
+                            <ul class="text-slate-600 space-y-1.5 list-disc list-inside pl-1">
+                                <li><strong>Local SRHiE Inventory Tracking:</strong> Align UNFPA kit releases with DOH Regional Office XII and Provincial Health Office (PHO) inventory tracking to prevent facility supply duplication and ensure replenishment of maternal supplies in health facilities.</li>
+                                <li><strong>Trauma-Informed BHW Capacity Building:</strong> Conduct orientation refreshers for DOH/LGU-supported Barangay Health Workers (BHWs) focusing on adolescent-friendly interaction, non-verbal distress identification, and referral of postpartum and GBV complications.</li>
+                            </ul>
+                            <span class="text-[10px] text-unfpa-orange font-semibold block pt-1 border-t border-slate-200 mt-2">
+                                <i class="fa-solid fa-user-gear mr-1"></i> Responsible: DOH Regional Office XII, PHOs, & RHUs
+                            </span>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <strong class="text-slate-800 font-bold block text-xs text-unfpa-navy">2. Practical MSWDO / LSWDO Local Relief Coordination</strong>
+                            <ul class="text-slate-600 space-y-1.5 list-disc list-inside pl-1">
+                                <li><strong>Beneficiary Roster Validation:</strong> Coordinate with Municipal Social Welfare and Development Offices (MSWDO) during pre-distribution planning to cross-reference beneficiary registries against local emergency lists, prioritizing unassisted pregnant/lactating women and PWDs.</li>
+                                <li><strong>Ground-Level Referral Linkages:</strong> Establish clear referral steps with local social workers so that mothers needing supplementary food or cash assistance identified during kit distributions are flagged directly to MSWDO relief channels.</li>
+                            </ul>
+                            <span class="text-[10px] text-unfpa-orange font-semibold block pt-1 border-t border-slate-200 mt-2">
+                                <i class="fa-solid fa-user-gear mr-1"></i> Responsible: MSWDO / LSWDO & Field Implementation Teams
+                            </span>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+                            <strong class="text-slate-800 font-bold block text-xs text-unfpa-navy">3. Grounded Inter-Agency Protection & Feedback Integration</strong>
+                            <ul class="text-slate-600 space-y-1.5 list-disc list-inside pl-1">
+                                <li><strong>Utilizing Existing RHU & WFS Help Desks:</strong> Utilize existing Rural Health Unit (RHU) desks and LGU Women-Friendly Spaces (WFS) for feedback intake rather than establishing standalone inter-agency desks during rapid recovery phases.</li>
+                                <li><strong>Protection Pathway Alignment:</strong> Channel sensitive protection feedback from complaint boxes and hotlines directly into local GBV Sub-Cluster and Local Council for the Protection of Children (LCPC) referral pathways managed by MSWDO and municipal health officers.</li>
+                            </ul>
+                            <span class="text-[10px] text-unfpa-orange font-semibold block pt-1 border-t border-slate-200 mt-2">
+                                <i class="fa-solid fa-user-gear mr-1"></i> Responsible: GBV Sub-Cluster, LCPC, & Municipal Health Officers
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: ANNEX -->
+        <section id="content-annex" class="tab-content space-y-6 hidden">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-1.5 h-6 bg-unfpa-orange rounded-full"></div>
+                        <h2 class="text-xl font-bold text-slate-800">Annex 1: Qualitative Testimonies & Verbatim Transcripts</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-1 text-xs">
+                        <button onclick="filterQuotes('all')" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 rounded font-medium text-slate-700">All</button>
+                        <button onclick="filterQuotes('Malapatan')" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 rounded font-medium text-slate-700">Malapatan</button>
+                        <button onclick="filterQuotes('Glan')" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 rounded font-medium text-slate-700">Glan</button>
+                        <button onclick="filterQuotes('Lake Sebu')" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 rounded font-medium text-slate-700">Lake Sebu</button>
+                        <button onclick="filterQuotes('Alabel')" class="px-2.5 py-1 bg-slate-200 hover:bg-slate-300 rounded font-medium text-slate-700">Alabel</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2" id="quotesContainer">
+                    <div class="quote-card bg-orange-50/40 p-4 rounded-xl border border-orange-200 space-y-2" data-location="Malapatan">
+                        <div class="flex justify-between items-center text-[10px] text-orange-900 font-bold uppercase">
+                            <span>Malapatan | Youth Cohort</span>
+                            <span>16-yo Lactating Mother</span>
+                        </div>
+                        <p class="text-xs text-slate-700 italic">"Malaking tulong po talaga sa amin ang mga relief items, Maternity Pack, para sa aming mga bagong panganak. Sana po ay madagdagan ang DIAPERS na magagamit sa araw-araw ng aming anak."</p>
+                    </div>
+
+                    <div class="quote-card bg-orange-50/40 p-4 rounded-xl border border-orange-200 space-y-2" data-location="Lake Sebu">
+                        <div class="flex justify-between items-center text-[10px] text-orange-900 font-bold uppercase">
+                            <span>Lake Sebu | Youth Cohort</span>
+                            <span>16-yo Young Mother</span>
+                        </div>
+                        <p class="text-xs text-slate-700 italic">"Malaking pasasalamat po namin dahil hinatid na sa amin ang relief items at hindi na kami nahirapan sa pagkuha nito, lalo na kami ay may mga anak na maliliit pa."</p>
+                    </div>
+
+                    <div class="quote-card bg-orange-50/40 p-4 rounded-xl border border-orange-200 space-y-2" data-location="Alabel">
+                        <div class="flex justify-between items-center text-[10px] text-orange-900 font-bold uppercase">
+                            <span>Alabel Ward | Adult Cohort</span>
+                            <span>32-yo Pregnant Woman</span>
+                        </div>
+                        <p class="text-xs text-slate-700 italic">"Nagpapasalamat po ako sa malaking tulong ng UNFPA sa mga relief kit. Sana madagdagan ng cash pang-bili ng pagkain kung pwede, pero malaking tulong na po sa amin ang ibinigay."</p>
+                    </div>
+
+                    <div class="quote-card bg-orange-50/40 p-4 rounded-xl border border-orange-200 space-y-2" data-location="Glan">
+                        <div class="flex justify-between items-center text-[10px] text-orange-900 font-bold uppercase">
+                            <span>Glan Hospital | Youth Cohort</span>
+                            <span>18-yo Postpartum Mother</span>
+                        </div>
+                        <p class="text-xs text-slate-700 italic">"Malaking tulong po ang mga natanggap namin. Sana po madagdagan ang diapers, gatas, at pagkain."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-12 border-t border-slate-800 text-center">
+        <p>United Nations Population Fund (UNFPA) Philippines | Region XII Post-Distribution Monitoring Report</p>
+        <p class="text-[10px] text-slate-500 mt-1">Generated for Official Emergency Response Assessment | August 2026 Deployment</p>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script>
+        window.switchTab = function(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(el => el.classList.add('hidden'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const target = document.getElementById('content-' + tabId);
+            if (target) {
+                target.classList.remove('hidden');
+            }
+
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            window.dispatchEvent(new Event('resize'));
+        };
+
+        window.toggleTable = function(tableId) {
+            const table = document.getElementById(tableId);
+            if (table) {
+                table.classList.toggle('hidden');
+            }
+        };
+
+        window.filterQuotes = function(location) {
+            const cards = document.querySelectorAll('.quote-card');
+            cards.forEach(card => {
+                if (location === 'all' || card.getAttribute('data-location') === location) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        if (typeof ChartDataLabels !== 'undefined') {
+            Chart.register(ChartDataLabels);
+        }
+
+        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.font.size = 11;
+        Chart.defaults.plugins.legend.position = 'bottom';
+
+        window.addEventListener('load', function() {
+            // 1. Summary Reach Chart (Horizontal Bar)
+            const ctxSummary = document.getElementById('summaryReachChart');
+            if (ctxSummary) {
+                new Chart(ctxSummary, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Malapatan', 'Glan', 'Lake Sebu', 'Alabel', 'Other'],
+                        datasets: [{
+                            label: 'Monitored Beneficiaries',
+                            data: [170, 98, 30, 22, 1],
+                            backgroundColor: ['#F36D21', '#002B49', '#009CDE', '#F2A900', '#94A3B8'],
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'end',
+                                formatter: (val) => `${val} (${((val/321)*100).toFixed(1)}%)`,
+                                font: { weight: 'bold', size: 10 },
+                                color: '#334155'
+                            }
+                        },
+                        scales: { x: { max: 200 } }
+                    }
+                });
+            }
+
+            // 2. Demographics Chart (Donut)
+            const ctxDemo = document.getElementById('demographicsChart');
+            if (ctxDemo) {
+                new Chart(ctxDemo, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Adults (25+ yrs)', 'Youth (18-24 yrs)', 'Minors (<18 yrs)'],
+                        datasets: [{
+                            data: [200, 106, 15],
+                            backgroundColor: ['#002B49', '#F36D21', '#F2A900']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            datalabels: {
+                                formatter: (val) => `${((val/321)*100).toFixed(1)}%`,
+                                color: '#FFFFFF',
+                                font: { weight: 'bold', size: 10 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 3. Maternal Profile Chart
+            const ctxMat = document.getElementById('maternalChart');
+            if (ctxMat) {
+                new Chart(ctxMat, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Lactating/Nursing', '3rd Trimester', '2nd Trimester', '1st Trimester'],
+                        datasets: [{
+                            label: 'Recipients',
+                            data: [188, 85, 39, 9],
+                            backgroundColor: '#F36D21',
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: (val) => `${val} (${((val/321)*100).toFixed(1)}%)`,
+                                font: { weight: 'bold', size: 10 }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 4. Household Chart
+            const ctxHH = document.getElementById('householdChart');
+            if (ctxHH) {
+                new Chart(ctxHH, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Large (6+ members)', 'Medium (4-5 members)', 'Small (2-3 members)'],
+                        datasets: [{
+                            data: [170, 127, 24],
+                            backgroundColor: ['#F36D21', '#002B49', '#009CDE']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            datalabels: {
+                                formatter: (val) => `${((val/321)*100).toFixed(1)}%`,
+                                color: '#FFFFFF',
+                                font: { weight: 'bold' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 5. PWD Inclusion Chart
+            const ctxPWD = document.getElementById('pwdChart');
+            if (ctxPWD) {
+                new Chart(ctxPWD, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Malapatan', 'Glan', 'Alabel', 'Lake Sebu'],
+                        datasets: [{
+                            label: 'PWD Participation Rate (%)',
+                            data: [38.2, 8.2, 4.5, 3.3],
+                            backgroundColor: '#002B49',
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: (val) => `${val}%`,
+                                font: { weight: 'bold' }
+                            }
+                        },
+                        scales: { y: { max: 50 } }
+                    }
+                });
+            }
+
+            // 6. Selection Transparency
+            const ctxTrans = document.getElementById('transparencyChart');
+            if (ctxTrans) {
+                new Chart(ctxTrans, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Malapatan', 'Alabel', 'Lake Sebu', 'Glan'],
+                        datasets: [{
+                            label: 'Aware (%)',
+                            data: [80.6, 72.7, 63.3, 57.1],
+                            backgroundColor: '#F36D21'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: (val) => `${val}%`,
+                                font: { weight: 'bold' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 7. Pre-Dispatch Kit Completeness
+            const ctxComp = document.getElementById('completenessChart');
+            if (ctxComp) {
+                new Chart(ctxComp, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Complete Kits', '1 Item Missing', '2+ Items Missing'],
+                        datasets: [{
+                            data: [259, 35, 27],
+                            backgroundColor: ['#002B49', '#F2A900', '#E11D48']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            datalabels: {
+                                formatter: (val) => `${((val/321)*100).toFixed(1)}%`,
+                                color: '#FFFFFF',
+                                font: { weight: 'bold' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 8. CFM Performance Chart
+            const ctxCFM = document.getElementById('cfmChart');
+            if (ctxCFM) {
+                new Chart(ctxCFM, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Felt Safe Filing', 'CFM Access', 'Submitted Feedback', 'Follow-up Received'],
+                        datasets: [{
+                            data: [67.0, 51.1, 18.7, 0.0],
+                            backgroundColor: ['#002B49', '#009CDE', '#F36D21', '#E11D48'],
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: (val) => `${val}%`,
+                                font: { weight: 'bold' }
+                            }
+                        },
+                        scales: { y: { max: 100 } }
+                    }
+                });
+            }
+
+            // 9. Transport Modes
+            const ctxTransp = document.getElementById('transportChart');
+            if (ctxTransp) {
+                new Chart(ctxTransp, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Walking / On Foot', 'Motorcycle (Habal-habal)', 'Bedside / Hospital Ward'],
+                        datasets: [{
+                            data: [219, 35, 67],
+                            backgroundColor: ['#F36D21', '#002B49', '#009CDE']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            datalabels: {
+                                formatter: (val) => `${((val/321)*100).toFixed(1)}%`,
+                                color: '#FFFFFF',
+                                font: { weight: 'bold' }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 10. Venue Safety
+            const ctxSafety = document.getElementById('safetyChart');
+            if (ctxSafety) {
+                new Chart(ctxSafety, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Felt Safe', 'Neutral / Concerns'],
+                        datasets: [{
+                            data: [98.8, 1.2],
+                            backgroundColor: ['#002B49', '#94A3B8'],
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: (val) => `${val}%`,
+                                font: { weight: 'bold' }
+                            }
+                        },
+                        scales: { y: { max: 110 } }
+                    }
+                });
+            }
+
+            // 11. Kit Utility Rates
+            const ctxUtil = document.getElementById('utilityChart');
+            if (ctxUtil) {
+                new Chart(ctxUtil, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Alabel', 'Lake Sebu', 'Malapatan', 'Glan'],
+                        datasets: [{
+                            label: 'Active Utility (%)',
+                            data: [100.0, 96.7, 95.9, 92.9],
+                            backgroundColor: '#F36D21',
+                            borderRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: (val) => `${val}%`,
+                                font: { weight: 'bold' }
+                            }
+                        },
+                        scales: { y: { min: 80, max: 105 } }
+                    }
+                });
+            }
+
+            // 12. MHM Scarcity Preference
+            const ctxMHM = document.getElementById('mhmChart');
+            if (ctxMHM) {
+                new Chart(ctxMHM, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Disposable MHM Pads', 'Reusable Cloth Pads'],
+                        datasets: [{
+                            data: [100.0, 0.0],
+                            backgroundColor: ['#002B49', '#CBD5E1']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            datalabels: {
+                                formatter: (val) => `${val}%`,
+                                color: '#FFFFFF',
+                                font: { weight: 'bold', size: 14 }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
